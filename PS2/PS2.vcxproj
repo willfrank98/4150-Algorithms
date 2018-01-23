@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D8A516B3-02CE-467D-886A-DFA14DE8C303}</ProjectGuid>
+    <ProjectGuid>{D6A3FDDE-6F2D-4FFD-AF33-328E22E45C17}</ProjectGuid>
     <RootNamespace>PS2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
