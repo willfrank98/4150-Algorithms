@@ -1,5 +1,7 @@
 #include <vector>
 
+using namespace std;
+
 #pragma once
 class BinaryTree
 {
@@ -14,6 +16,9 @@ public:
 	~BinaryTree();
 
 private:
-	std::vector<int> tree;
+	void addSubMethod(int value, int pos);
+
+	vector<int> tree;
+	string treeString;
 };
 
