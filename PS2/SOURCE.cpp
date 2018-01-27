@@ -25,8 +25,8 @@ int main()
 	for (int i = 0; i < ceilings; i++)
 	{
 		int size = pow(2, layers) - 1;
-		tree = vector<int>(size);
-		treeString = string('0', size);
+		tree = vector<int>(size, 0);
+		treeString = string(size, '0');
 
 		for (int j = 0; j < layers; j++)
 		{
@@ -35,8 +35,6 @@ int main()
 
 			add(input);
 		}
-
-		//string treeString = t.treeToString();
 
 		if (trees[treeString] == 0)
 		{
