@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS1", "PS1\PS1.vcxproj", "{6070DB55-0ED7-49AB-A783-C64CC5E36827}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS2", "PS2\PS2.vcxproj", "{D6A3FDDE-6F2D-4FFD-AF33-328E22E45C17}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS3", "PS3\PS3.vcxproj", "{745D0CD0-2D44-4698-ADB3-655E4AC0058A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{D6A3FDDE-6F2D-4FFD-AF33-328E22E45C17}.Release|x64.Build.0 = Release|x64
 		{D6A3FDDE-6F2D-4FFD-AF33-328E22E45C17}.Release|x86.ActiveCfg = Release|Win32
 		{D6A3FDDE-6F2D-4FFD-AF33-328E22E45C17}.Release|x86.Build.0 = Release|Win32
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Debug|x64.ActiveCfg = Debug|x64
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Debug|x64.Build.0 = Debug|x64
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Debug|x86.ActiveCfg = Debug|Win32
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Debug|x86.Build.0 = Debug|Win32
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Release|x64.ActiveCfg = Release|x64
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Release|x64.Build.0 = Release|x64
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Release|x86.ActiveCfg = Release|Win32
+		{745D0CD0-2D44-4698-ADB3-655E4AC0058A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
