@@ -1,20 +1,21 @@
+#include <iostream>
+
 using namespace std;
 
 int select(int a[], int b[], int k);
 int select(int a[], int loA, int hiA, int b[], int loB, int hiB, int k);
 
 int A_SIZE = 7;
-int B_SIZE = 7;
+int B_SIZE = 4;
 
 int main()
 {
-	int a[] = {2, 3, 4, 5, 6, 10, 22};
-	int b[] = {7, 8, 9, 14, 15, 16, 17};
+	int a[] = { 2, 5, 7, 22 , 100, 101, 103};
+	int b[] = { 7, 8, 9, 14 };
 
-	//sorted = 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15, 16, 17, 22
-	//k = 5		           ^
+	int k = 9;
 
-	select(a, b, 5);
+	cout << select(a, b, k);
 }
 
 int select(int a[], int b[], int k)
@@ -41,22 +42,22 @@ int select(int a[], int loA, int hiA, int b[], int loB, int hiB, int k)
 	{
 		if (k <= i + j)
 		{
-			return select(a, loA, i, b, loB, j, k);
+			return select(a, loA, i-1, b, loB, hiB, k);
 		}
 		else
 		{
-			return select(a, 0, A_SIZE - 1, b, 0, B_SIZE - 1, k);
+			return select(a, loA, hiA, b, j+1, hiB, k);
 		}
 	}
 	else
 	{
 		if (k <= i + j)
 		{
-			return select(a, i, hiA, b, loB, j, k);
+			return select(a, loA, hiA, b, loB, j-1, k);
 		}
 		else
 		{
-			return select(a, 0, A_SIZE - 1, b, 0, B_SIZE - 1, k);
+			return select(a, i+1, hiA, b, loB, hiB, k);
 		}
 	}
 }
