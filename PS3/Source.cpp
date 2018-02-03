@@ -109,7 +109,7 @@ pair<int, int> findMajority(vector<pair<int, int>> points)
 		int numMaj = 0;
 		for (int i = 0; i < size; i++)
 		{
-			if (inGalaxy(leftover, points[i]))
+			if (inGalaxy(maj, points[i]))
 			{
 				numMaj++;
 			}
