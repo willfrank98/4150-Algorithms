@@ -75,7 +75,7 @@ int main()
 		{
 			int cost = cheapestPath(start, dest);
 
-			if (cost == -1 || cost == INT32_MAX)
+			if (cost == INT32_MAX || cost < 0)
 			{
 				cout << "NO" << endl;
 			}
@@ -168,7 +168,7 @@ int cheapestPath(string start, string dest)
 			string tempStart = it.first;
 			if (Map[tempStart][tempDest] != INT32_MAX) //if there is a highway here
 			{
-				if (cost[tempStart] < tempCost)
+				if (cost[tempStart] + Map[tempStart][tempDest] < tempCost)
 				{
 					tempCost = cost[tempStart] + Map[tempStart][tempDest];
 				}
