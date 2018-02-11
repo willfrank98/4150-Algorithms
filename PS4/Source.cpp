@@ -6,6 +6,7 @@
 using namespace std;
 
 map<string, map<string, int>> Map;
+map<string, map<string, int>> reverseMap;
 vector<string> sorted;
 map<string, int> tolls;	//doubles as a list of all cities
 
@@ -18,6 +19,8 @@ int main()
 	cin >> cities;
 
 	map<string, int> inputs;
+
+	//map<string, int> tolls;
 
 	for (int i = 0; i < cities; i++)
 	{
@@ -51,6 +54,7 @@ int main()
 		cin >> end;
 
 		Map[start][end] = tolls[end];
+		reverseMap[end][start] = tolls[end];
 		inputs[end]++;
 	}
 	
@@ -163,7 +167,7 @@ int cheapestPath(string start, string dest)
 		string tempDest = sorted[i];
 
 		int tempCost = INT32_MAX;
-		for (auto& it : tolls)
+		for (auto& it : reverseMap[tempDest])
 		{
 			string tempStart = it.first;
 			if (Map[tempStart][tempDest] != INT32_MAX) //if there is a highway here
