@@ -168,7 +168,7 @@ int cheapestPath(string start, string dest)
 			string tempStart = it.first;
 			if (Map[tempStart][tempDest] != INT32_MAX) //if there is a highway here
 			{
-				if (cost[tempStart] + Map[tempStart][tempDest] < tempCost)
+				if (cost[tempStart] != INT32_MAX && cost[tempStart] + Map[tempStart][tempDest] < tempCost)
 				{
 					tempCost = cost[tempStart] + Map[tempStart][tempDest];
 				}
