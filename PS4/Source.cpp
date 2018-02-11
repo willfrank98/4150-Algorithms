@@ -2,12 +2,12 @@
 #include <string>
 #include <map>
 #include <vector>
-//#include <pair>
 
 using namespace std;
 
 map<string, map<string, int>> Map;
 vector<string> sorted;
+map<string, int> tolls;	//doubles as a list of all cities
 
 void topoSort(map<string, int>);
 int cheapestPath(string start, string dest);
@@ -16,8 +16,6 @@ int main()
 {
 	int cities;
 	cin >> cities;
-
-	map<string, int> tolls;
 
 	map<string, int> inputs;
 
@@ -31,6 +29,14 @@ int main()
 
 		tolls[city] = toll;
 		inputs[city] = 0;
+	}
+
+	for (auto& it : tolls)
+	{
+		for (auto& it2 : tolls)
+		{
+			Map[it.first][it2.first] = INT32_MAX;
+		}
 	}
 
 	int highways;
@@ -67,7 +73,16 @@ int main()
 		}
 		else
 		{
-			
+			int cost = cheapestPath(start, dest);
+
+			if (cost == -1 || cost == INT32_MAX)
+			{
+				cout << "NO" << endl;
+			}
+			else
+			{
+				cout << cost << endl;
+			}
 		}
 	}
 
@@ -81,14 +96,13 @@ void topoSort(map<string, int> inputs)
 	while (inputs.size() > 0)
 	{
 		vector<string> toErase;
-		for (map<string, int>::iterator it = inputs.begin(); it != inputs.end(); it++)
+		for (auto& it : inputs)
 		{
-			if (it->second == 0)
+			if (it.second == 0)
 			{
-				string source = it->first;
+				string source = it.first;
 				sorted.push_back(source);
 
-				inputs.erase(source);
 				toErase.push_back(source);
 
 			}
@@ -98,18 +112,19 @@ void topoSort(map<string, int> inputs)
 		{
 			string source = toErase[i];
 			//update inputs to reflect new sources
-			for (map<string, int>::iterator it = Map[source].begin(); it != Map[source].end(); it++)
+			for (auto& it : Map[source])
 			{
-				string dest = it->first;
+				string dest = it.first;
 
 				//if there is a highway from source to dest
-				if (Map[source][dest] > 0)
+				if (Map[source][dest] != INT32_MAX)
 				{
 					inputs[dest]--;
 				}
 			}
+
+			inputs.erase(source);
 		}
-		
 	}
 
 	//find source
@@ -120,12 +135,23 @@ void topoSort(map<string, int> inputs)
 
 int cheapestPath(string start, string dest)
 {
-	//cost to get to [] from start
+	//cost to get to [something] from start
 	map<string, int> cost;
+
+	for (auto& it : tolls)
+	{
+		cost[it.first] = INT32_MAX;
+	}
+
+	cost[start] = 0;
 
 	int i;
 	for (i = 0; i < sorted.size(); i++)
 	{
+		if (sorted[i] == dest)
+		{
+			return -1;
+		}
 		if (sorted[i] == start)
 		{
 			break;
@@ -136,6 +162,28 @@ int cheapestPath(string start, string dest)
 	{
 		string tempDest = sorted[i];
 
+		int tempCost = INT32_MAX;
+		for (auto& it : tolls)
+		{
+			string tempStart = it.first;
+			if (Map[tempStart][tempDest] != INT32_MAX) //if there is a highway here
+			{
+				if (cost[tempStart] < tempCost)
+				{
+					tempCost = cost[tempStart] + Map[tempStart][tempDest];
+				}
+			}
+		}
 
+		if (tempDest == dest)
+		{
+			return tempCost;
+		}
+		else
+		{
+			cost[tempDest] = tempCost;
+		}
 	}
+
+	return -1;
 }
