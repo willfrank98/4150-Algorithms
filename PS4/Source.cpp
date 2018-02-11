@@ -9,12 +9,17 @@ using namespace std;
 map<string, map<string, int>> Map;
 vector<string> sorted;
 
+void topoSort(map<string, int>);
+int cheapestPath(string start, string dest);
+
 int main()
 {
 	int cities;
 	cin >> cities;
 
 	map<string, int> tolls;
+
+	map<string, int> inputs;
 
 	for (int i = 0; i < cities; i++)
 	{
@@ -25,6 +30,7 @@ int main()
 		cin >> toll;
 
 		tolls[city] = toll;
+		inputs[city] = 0;
 	}
 
 	int highways;
@@ -39,10 +45,10 @@ int main()
 		cin >> end;
 
 		Map[start][end] = tolls[end];
+		inputs[end]++;
 	}
-
 	
-	//sorted = topoSort();
+	topoSort(inputs);
 
 	int trips;
 	cin >> trips;
@@ -61,40 +67,75 @@ int main()
 		}
 		else
 		{
-			topoSort(start);
-
-			//reverseVec(sorted);
+			
 		}
 	}
 
 
 }
 
-void topoSort(string startCity)
+void topoSort(map<string, int> inputs)
 {
 	sorted = vector<string>();
-	depthFirstSearch(startCity, 0);
-}
 
-void depthFirstSearch(string startCity, int value)
-{
-	//this iterates through the map
-	for (map<string, int>::iterator it = Map[startCity].begin(); it != Map[startCity].end(); it++)
+	while (inputs.size() > 0)
 	{
-		depthFirstSearch(it->first, value++);
+		vector<string> toErase;
+		for (map<string, int>::iterator it = inputs.begin(); it != inputs.end(); it++)
+		{
+			if (it->second == 0)
+			{
+				string source = it->first;
+				sorted.push_back(source);
+
+				inputs.erase(source);
+				toErase.push_back(source);
+
+			}
+		}
+
+		for (int i = 0; i < toErase.size(); i++)
+		{
+			string source = toErase[i];
+			//update inputs to reflect new sources
+			for (map<string, int>::iterator it = Map[source].begin(); it != Map[source].end(); it++)
+			{
+				string dest = it->first;
+
+				//if there is a highway from source to dest
+				if (Map[source][dest] > 0)
+				{
+					inputs[dest]--;
+				}
+			}
+		}
+		
 	}
 
-	sorted.push_back(startCity);
+	//find source
+	//add to sorted
+	//delete
+	//repeat until inputs.size() == 0
 }
 
-vector<string> reverseVec(vector<string> vec)
+int cheapestPath(string start, string dest)
 {
-	vector<string> temp(vec.size());
+	//cost to get to [] from start
+	map<string, int> cost;
 
-	for (int i = 0; i < vec.size(); i++)
+	int i;
+	for (i = 0; i < sorted.size(); i++)
 	{
-		temp[i] = vec[vec.size() - i - 1];
+		if (sorted[i] == start)
+		{
+			break;
+		}
 	}
 
-	return temp;
+	for (i += 1;i < sorted.size(); i++)
+	{
+		string tempDest = sorted[i];
+
+
+	}
 }
