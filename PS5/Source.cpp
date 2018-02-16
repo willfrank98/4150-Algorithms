@@ -52,7 +52,7 @@ int main()
 	}
 }
 
-string generateReport(string student)
+string generateReport(string student, vector<string> studentsVec)
 {
 	string report = student + " ";
 
@@ -83,6 +83,14 @@ string generateReport(string student)
 		}
 
 		students = newStudents;
+	}
+
+	for (auto& name : knows)
+	{
+		if (name.second)
+		{
+
+		}
 	}
 
 	return report;
