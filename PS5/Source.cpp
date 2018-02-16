@@ -7,6 +7,7 @@
 using namespace std;
 
 string generateReport(string student);
+void knowsReset();
 
 map<string, map<string, bool>> friends;
 map<string, bool> knows;
@@ -49,12 +50,14 @@ int main()
 
 		string report = generateReport(student);
 		cout << report << endl;
+		knowsReset();
 	}
 }
 
-string generateReport(string student, vector<string> studentsVec)
+string generateReport(string student/*, vector<string> studentsVec*/)
 {
 	string report = student + " ";
+	knows[student] = true;
 
 	vector<string> students;
 	students.push_back(student);
@@ -87,9 +90,9 @@ string generateReport(string student, vector<string> studentsVec)
 
 	for (auto& name : knows)
 	{
-		if (name.second)
+		if (!name.second)
 		{
-
+			report += name.first + " ";
 		}
 	}
 
