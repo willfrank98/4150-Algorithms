@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS1", "PS1\PS1.vcxproj", "{6070DB55-0ED7-49AB-A783-C64CC5E36827}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS4", "PS4\PS4.vcxproj", "{5640A8FB-478F-433E-82BD-175F7206567A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS5", "PS5\PS5.vcxproj", "{265C63CB-1C35-48E9-926A-793B37F93D95}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS6", "PS6\PS6.vcxproj", "{764F4279-2AF6-42AE-A9AC-227CFDEA2209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{265C63CB-1C35-48E9-926A-793B37F93D95}.Release|x64.Build.0 = Release|x64
 		{265C63CB-1C35-48E9-926A-793B37F93D95}.Release|x86.ActiveCfg = Release|Win32
 		{265C63CB-1C35-48E9-926A-793B37F93D95}.Release|x86.Build.0 = Release|Win32
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Debug|x64.ActiveCfg = Debug|x64
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Debug|x64.Build.0 = Debug|x64
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Debug|x86.ActiveCfg = Debug|Win32
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Debug|x86.Build.0 = Debug|Win32
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x64.ActiveCfg = Release|x64
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x64.Build.0 = Release|x64
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x86.ActiveCfg = Release|Win32
+		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
