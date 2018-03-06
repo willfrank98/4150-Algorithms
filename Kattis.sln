@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS1", "PS1\PS1.vcxproj", "{6070DB55-0ED7-49AB-A783-C64CC5E36827}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS5", "PS5\PS5.vcxproj", "{265C63CB-1C35-48E9-926A-793B37F93D95}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS6", "PS6\PS6.vcxproj", "{764F4279-2AF6-42AE-A9AC-227CFDEA2209}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS7", "PS7\PS7.vcxproj", "{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,14 @@ Global
 		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x64.Build.0 = Release|x64
 		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x86.ActiveCfg = Release|Win32
 		{764F4279-2AF6-42AE-A9AC-227CFDEA2209}.Release|x86.Build.0 = Release|Win32
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Debug|x64.ActiveCfg = Debug|x64
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Debug|x64.Build.0 = Debug|x64
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Debug|x86.Build.0 = Debug|Win32
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Release|x64.ActiveCfg = Release|x64
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Release|x64.Build.0 = Release|x64
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Release|x86.ActiveCfg = Release|Win32
+		{A5E2E3CC-4487-45BE-B84E-49202A55BDB3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
