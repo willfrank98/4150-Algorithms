@@ -5,8 +5,8 @@ using namespace std;
 
 long gcd(long a, long b);
 long exp(long x, long y, long N);
-string inverse(long a, long N);
-long* ee(long a, long b);
+long inverse(long a, long N);
+void ee(long a, long b);
 bool isprime(long p);
 void key(long p, long q);
 
@@ -21,19 +21,27 @@ int main()
 		{
 			long a, b;
 			cin >> a >> b;
-			cout << gcd(a, b);
+			cout << gcd(a, b) << endl;
 		}
 		else if (type == "exp")
 		{
 			long x, y, N;
 			cin >> x >> y >> N;
-			cout << exp(x, y, N);
+			cout << exp(x, y, N) << endl;
 		}
 		else if (type == "inverse")
 		{
 			long a, N;
 			cin >> a >> N;
-			cout << inverse(a, N);
+			long inv = inverse(a, N);
+			if (inv == -1)
+			{
+				cout << "none" << endl;
+			}
+			else
+			{
+				cout << inv << endl;
+			}
 		}
 		else if (type == "isprime")
 		{
@@ -41,11 +49,11 @@ int main()
 			cin >> p;
 			if (isprime(p))
 			{
-				cout << "yes";
+				cout << "yes" << endl;
 			}
 			else
 			{
-				cout << "no";
+				cout << "no" << endl;
 			}
 		}
 		else if (type == "key")
@@ -89,40 +97,48 @@ long exp(long x, long y, long N)
 	}
 }
 
-string inverse(long a, long N)
+long x, y, z; //pointers are hard :(
+
+long inverse(long a, long N)
 {
-	long* arr = ee(a, N);
-	if (arr[2] == 1)
+	ee(a, N);
+	if (z == 1)
 	{
-		return "" + arr[0] % N;
+		long ret = x % N;
+		if (ret < 0)
+		{
+			return ret + N;
+		}
+		else
+		{
+			return ret;
+		}
 	}
 	else
 	{
-		return "none";
+		return -1;
 	}
 }
 
-long* ee(long a, long b)
+void ee(long a, long b)
 {
-	long temp[3];
-	long* arr = temp;
 	if (b == 0)
 	{
-		arr[0] = 1;
-		arr[1] = 0;
-		arr[2] = a;
-		return arr;
+		x = 1;
+		y = 0;
+		z = a;
+		
 	}
 	else
 	{
-		arr = ee(b, a%b);
-		long x = arr[1];
-		long y = arr[0] - (a / b)*arr[1];
-		long z = arr[2];
-		arr[0] = x;
-		arr[1] = y;
-		arr[2] = z;
-		return arr;
+		ee(b, a%b);
+		long x2 = y;
+		long y2 = x - (a / b)*y;
+		long z2 = z;
+		x = x2;
+		y = y2;
+		z = z2;
+		return;
 	}
 }
 
@@ -144,9 +160,21 @@ bool isprime(long p)
 void key(long p, long q)
 {
 	long N = p * q;
-	cout << N;
+	cout << N << " ";
 
 	long phi = (p - 1)*(q - 1);
 
+	long e = 2;
+	for (e = 2; e < phi; e++)
+	{
+		if (gcd(e, phi) == 1)
+		{
+			cout << e << " ";
+			break;
+		}
+	}
+
+	long d = inverse(e, phi);
+	cout << d << endl;
 }
 
