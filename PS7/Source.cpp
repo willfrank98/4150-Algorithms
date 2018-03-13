@@ -20,7 +20,8 @@ int main()
 		if (type == "gcd")
 		{
 			long a, b;
-			cin >> a >> b;
+			cin >> a;
+			cin >> b;
 			cout << gcd(a, b) << endl;
 		}
 		else if (type == "exp")
