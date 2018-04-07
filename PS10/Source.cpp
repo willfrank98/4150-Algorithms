@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -7,9 +8,17 @@ int maxValue(int start, int uncloseable, int k);
 int max(int vals[], int size);
 
 vector<vector<int>> values;
-vector<vector<vector<int>>> maxValues;
+map<string, int> maxValues;
+//vector<vector<vector<int>>> maxValues;
+//map<string, IntDefaultedToMinusOne> maxValues;
 
 int N;
+
+struct IntDefaultedToMinusOne
+{
+	int i = -1;
+};
+
 
 int main()
 {
@@ -24,7 +33,7 @@ int main()
 		}
 
 		values = vector<vector<int>>(N, vector<int>(2, 0));
-		maxValues = vector<vector<vector<int>>>(N, vector<vector<int>>(3, vector<int>(N, -1)));
+		maxValues = map<string, int>();
 
 		for (int i = 0; i < N; i++)
 		{
@@ -35,30 +44,40 @@ int main()
 			values[i][1] = val1;
 		}
 
-		cout << maxValue(0, -1, k);
+		cout << maxValue(0, -1, k) << endl << endl;
 	}
 }
 
 int maxValue(int r, int uncloseable, int k)
 {
+	//maxValues = vector<vector<vector<int>>>(N, vector<vector<int>>(3, vector<int>(N, -1))); [r][uncloseable + 1][k]
+	//map<string, int> maxValues;
+	//vector<vector<vector<int>>> maxValues(N, vector<vector<int>>(3, vector<int>(N, -1)));
+
+	/*if (k < 0)
+	{
+		k = 0;
+	}*/
+
 	if (r == N)
 	{
 		return 0;
 	}
 
-	if (maxValues[r][uncloseable + 1][k] != -1)
+	if (maxValues["" + r + uncloseable + k] != 0)
 	{
-		return maxValues[r][uncloseable + 1][k];
+		if (maxValues["" + r + uncloseable + k] == -1)
+		{
+			return 0;
+		}
+		return maxValues["" + r + uncloseable + k];
 	}
 
 	int returnVal = 0;
 
 	if (k == 0)
 	{
-		for (int i = r; i < N; i++)
-		{
-			returnVal += values[i][0] + values[i][1];
-		}
+		returnVal = values[r][0] + values[r][1] + maxValue(r + 1, -1, k);
 	}
 	else if (k == N - r)
 	{
@@ -112,9 +131,13 @@ int maxValue(int r, int uncloseable, int k)
 		}
 	}
 
-	if (returnVal > maxValues[r][uncloseable + 1][k])
+	if (returnVal == 0)
 	{
-		maxValues[r][uncloseable + 1][k] = returnVal;
+		maxValues["" + r + uncloseable + k] = -1;
+	}
+	else if (returnVal > maxValues["" + r + uncloseable + k])
+	{
+		maxValues["" + r + uncloseable + k] = returnVal;
 	}
 
 	return returnVal;
