@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <string>
 
 using namespace std;
 
@@ -10,15 +11,8 @@ int max(int vals[], int size);
 vector<vector<int>> values;
 map<string, int> maxValues;
 //vector<vector<vector<int>>> maxValues;
-//map<string, IntDefaultedToMinusOne> maxValues;
 
 int N;
-
-struct IntDefaultedToMinusOne
-{
-	int i = -1;
-};
-
 
 int main()
 {
@@ -54,23 +48,19 @@ int maxValue(int r, int uncloseable, int k)
 	//map<string, int> maxValues;
 	//vector<vector<vector<int>>> maxValues(N, vector<vector<int>>(3, vector<int>(N, -1)));
 
-	/*if (k < 0)
-	{
-		k = 0;
-	}*/
-
 	if (r == N)
 	{
 		return 0;
 	}
 
-	if (maxValues["" + r + uncloseable + k] != 0)
+	string temp = to_string(r) + to_string(uncloseable) + to_string(k);
+	if (maxValues[temp] != 0)
 	{
-		if (maxValues["" + r + uncloseable + k] == -1)
+		if (maxValues[temp] == -1)
 		{
 			return 0;
 		}
-		return maxValues["" + r + uncloseable + k];
+		return maxValues[temp];
 	}
 
 	int returnVal = 0;
@@ -133,11 +123,11 @@ int maxValue(int r, int uncloseable, int k)
 
 	if (returnVal == 0)
 	{
-		maxValues["" + r + uncloseable + k] = -1;
+		maxValues[temp] = -1;
 	}
-	else if (returnVal > maxValues["" + r + uncloseable + k])
+	else if (returnVal > maxValues[temp])
 	{
-		maxValues["" + r + uncloseable + k] = returnVal;
+		maxValues[temp] = returnVal;
 	}
 
 	return returnVal;
