@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS9", "PS9\PS9.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS10", "PS10\PS10.vcxproj", "{F902C2A6-D813-4E13-A6AF-2626F8E6E70A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PS11", "PS11\PS11.vcxproj", "{48050C66-C4D0-4613-88F9-41D321622976}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{F902C2A6-D813-4E13-A6AF-2626F8E6E70A}.Release|x64.Build.0 = Release|x64
 		{F902C2A6-D813-4E13-A6AF-2626F8E6E70A}.Release|x86.ActiveCfg = Release|Win32
 		{F902C2A6-D813-4E13-A6AF-2626F8E6E70A}.Release|x86.Build.0 = Release|Win32
+		{48050C66-C4D0-4613-88F9-41D321622976}.Debug|x64.ActiveCfg = Debug|x64
+		{48050C66-C4D0-4613-88F9-41D321622976}.Debug|x64.Build.0 = Debug|x64
+		{48050C66-C4D0-4613-88F9-41D321622976}.Debug|x86.ActiveCfg = Debug|Win32
+		{48050C66-C4D0-4613-88F9-41D321622976}.Debug|x86.Build.0 = Debug|Win32
+		{48050C66-C4D0-4613-88F9-41D321622976}.Release|x64.ActiveCfg = Release|x64
+		{48050C66-C4D0-4613-88F9-41D321622976}.Release|x64.Build.0 = Release|x64
+		{48050C66-C4D0-4613-88F9-41D321622976}.Release|x86.ActiveCfg = Release|Win32
+		{48050C66-C4D0-4613-88F9-41D321622976}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
